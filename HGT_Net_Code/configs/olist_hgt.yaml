@@ -1,0 +1,32 @@
+seed: 42
+data_dir: data/raw/olist
+batch_size: 2048
+epochs: 80
+learning_rate: 0.001
+weight_decay: 0.0001
+hidden_dim: 128
+num_heads: 4
+num_layers: 2
+dropout: 0.3
+early_stopping_patience: 10
+focal_gamma: 2.0
+observation_months: 18
+prediction_months: 6
+val_size: 0.2
+label_strategy: all_history_repeat
+feature_set: olist_top5
+
+search_space:
+  batch_size: [1024, 2048, 4096]
+  learning_rate: [0.0003, 0.001, 0.003]
+  weight_decay: [0.0, 0.0001, 0.001]
+  hidden_dim: [64, 128, 256]
+  num_heads: [2, 4, 8]
+  num_layers: [1, 2, 3]
+  dropout: [0.1, 0.3, 0.5]
+  focal_gamma: [1.0, 2.0, 3.0]
+  observation_months: [12, 18, 24]
+  prediction_months: [3, 6, 9]
+  val_size: [0.1, 0.2]
+  label_strategy: [all_history_repeat, temporal_future]
+  feature_set: [olist_top5, all]
